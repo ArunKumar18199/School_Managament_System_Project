@@ -1,0 +1,114 @@
+  body, html {
+    height: 100%;
+    margin: 0;
+    font-family: Arial, sans-serif;
+    display: flex;
+    flex-direction: column;
+}
+
+.container {
+    width: 90%;
+    max-width: 1000px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.header {
+    background-color: #00c16e;
+    padding: 10px 0;
+    color: white;
+}
+
+.header h1 {
+    margin: 0;
+    font-size: 2.5em;
+    font-weight: bold;
+}
+
+.nav-links {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    margin-top: 10px;
+}
+
+.nav-links li {
+    margin: 0 10px;
+}
+
+.nav-links .btn {
+    text-decoration: none;
+    color: white;
+    background-color: #333;
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-weight: bold;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.nav-links .btn:hover {
+    background-color: #555;
+    transform: scale(1.05);
+}
+
+.main-content {
+    background-image: url('https://img.freepik.com/free-photo/students-knowing-right-answer_329181-14271.jpg?t=st=1716048318~exp=1716051918~hmac=635b6ea1c40d7113e7811321ecb28af2a2bc0d03c9f08e1261d7ed2ae2a34c05&w=996');
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 82vh;
+    background-position: center;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 50px;
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+.main-content .intro {
+    background-color: rgba(0, 193, 110, 0.9);
+    padding: 40px;
+    border-radius: 20px;
+    max-width: 500px;
+    text-align: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.main-content h2 {
+    font-size: 2.5em;
+    margin-bottom: 20px;
+    color: white;
+    font-weight: bold;
+}
+
+.main-content p {
+    font-size: 1.5em;
+    line-height: 1.6;
+    color: rgb(0, 0, 0);
+    font-weight: bold;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .header h1 {
+        font-size: 2em;
+    }
+
+    .nav-links {
+        flex-direction: column;
+    }
+
+    .nav-links li {
+        margin: 5px 0;
+    }
+
+    .main-content h2 {
+        font-size: 2em;
+    }
+
+    .main-content p {
+        font-size: 1.2em;
+    }
+}

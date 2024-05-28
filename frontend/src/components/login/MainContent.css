@@ -1,0 +1,22 @@
+.main-container {
+    ::-webkit-scrollbar {
+        display: none; /* For Chrome, Safari, and Opera */
+      }
+    display: flex;
+    height: calc(100vh - 100px);
+    overflow-y: hidden;
+  }
+  
+  .content-container {
+    width: 70%;
+    padding: 20px;
+    overflow-y: auto;
+  }
+  
+  .messaging-container {
+    width: 30%;
+    padding: 20px;
+    background-color: #f0f0f0;
+    overflow-y: auto;
+  }
+  

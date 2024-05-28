@@ -1,0 +1,11 @@
+_id,sender,senderName,recipient,message,timestamp,__v
+6654aa665e5f0dbd5ed34bf5,66291f3cbbbd5ad5ca0035de,admin,6648a151806582a91c8d0c71,Hello Arun,2024-05-27T15:44:38.135Z,0
+6654aa825e5f0dbd5ed34bfb,6648a151806582a91c8d0c71,Arun,66291f3cbbbd5ad5ca0035de,Yes Sir,2024-05-27T15:45:06.061Z,0
+6654acba5e5f0dbd5ed34c1a,66291f3cbbbd5ad5ca0035de,admin,6648a151806582a91c8d0c71,Please check if the grades of Telugu are updated or not.,2024-05-27T15:54:34.141Z,0
+6654acf55e5f0dbd5ed34c22,6648a151806582a91c8d0c71,Arun,66291f3cbbbd5ad5ca0035de,Yes sir the marks are updated.,2024-05-27T15:55:33.140Z,0
+6654ba795e5f0dbd5ed34d28,6648a110806582a91c8d0c6e,Sarath,6654b9e35e5f0dbd5ed34cff,Hi Arun,2024-05-27T16:53:13.689Z,0
+6654ba855e5f0dbd5ed34d2f,6654b9e35e5f0dbd5ed34cff,Arun Kumar,6648a110806582a91c8d0c6e,Yes Sir,2024-05-27T16:53:25.124Z,0
+6654baab5e5f0dbd5ed34d35,6648a110806582a91c8d0c6e,Sarath,6654b9e35e5f0dbd5ed34cff,Did you got Telugu Grades,2024-05-27T16:54:03.922Z,0
+6654bac25e5f0dbd5ed34d3d,6654b9e35e5f0dbd5ed34cff,Arun Kumar,6648a110806582a91c8d0c6e,Yes Sir I got It,2024-05-27T16:54:26.181Z,0
+6654bae85e5f0dbd5ed34d46,6654b9e35e5f0dbd5ed34cff,Arun Kumar,6648a0c9806582a91c8d0c6c,Sir I paid my fees,2024-05-27T16:55:04.480Z,0
+6654baf25e5f0dbd5ed34d4d,6648a0c9806582a91c8d0c6c,Surya,6654b9e35e5f0dbd5ed34cff,Ok,2024-05-27T16:55:14.511Z,0
