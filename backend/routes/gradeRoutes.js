@@ -1,10 +1,8 @@
 const express = require('express');
 const router = express.Router();
 const Grade = require('../models/Grade'); // Require the Grade model
-// const { authenticateToken } = require('../middleware/authMiddleware');
-// const { authorize } = require('../middleware/roleMiddleware');
 
-// Get all grades (only accessible to teachers)
+// Get all grades 
 router.get('/', async (req, res) => {
     try {
         const grades = await Grade.find();
@@ -14,7 +12,7 @@ router.get('/', async (req, res) => {
     }
 });
 
-// Create a new grade (only accessible to teachers)
+// Create a new grade
 router.post('/', async (req, res) => {
     try {
         // Ensure required fields are present in the request body
@@ -22,11 +20,6 @@ router.post('/', async (req, res) => {
         if (!rollNumber || !classNo || !subject || !grade) {
             return res.status(400).json({ message: 'Please provide rollNumber, classNo, subject, and grade' });
         }
-
-        // // Validate studentId as a valid ObjectId
-        // if (!mongoose.Types.ObjectId.isValid(studentId)) {
-        //     return res.status(400).json({ message: 'Invalid studentId' });
-        // }
 
         // Create a new grade instance
         const newGrade = new Grade({
@@ -47,17 +40,25 @@ router.post('/', async (req, res) => {
     }
 });
 
-// Get grade by ID (only accessible to teachers)
+// Get grade by ID 
 router.get('/:id',  getGrade, (req, res) => {
     res.json(res.grade);
 });
 
-// Update grade by ID (only accessible to teachers)
+// Update grade by ID 
 router.patch('/:id', getGrade, async (req, res) => {
+    if (req.body.rollNumber != null) {
+        res.grade.rollNumber = req.body.rollNumber;
+    }
+    if (req.body.classNo != null) {
+        res.grade.classNo = req.body.classNo;
+    }
+    if (req.body.subject != null) {
+        res.grade.subject = req.body.subject;
+    }
     if (req.body.grade != null) {
         res.grade.grade = req.body.grade;
     }
-    // Update other grade-related fields if needed
     try {
         const updatedGrade = await res.grade.save();
         res.json(updatedGrade);
@@ -66,7 +67,7 @@ router.patch('/:id', getGrade, async (req, res) => {
     }
 });
 
-// Delete grade by ID (only accessible to teachers)
+// Delete grade by ID 
 router.delete('/:id', getGrade, async (req, res) => {
     if (req.body.grade != null) {
         res.grade.grade = req.body.grade;

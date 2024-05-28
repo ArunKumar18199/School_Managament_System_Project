@@ -1,5 +1,3 @@
-// routes/studentRoutes.js
-
 const express = require('express');
 const router = express.Router();
 const Student = require('../models/Student');
@@ -16,11 +14,12 @@ router.get('/', async (req, res) => {
 
 // Add a new student
 router.post('/', async (req, res) => {
-    const { name, rollNumber, address, contactDetails, feeAmount } = req.body;
+    const { name, rollNumber, classNo, address, contactDetails, feeAmount } = req.body;
     try {
         const student = new Student({
             name,
             rollNumber,
+            classNo,
             address,
             contactDetails,
             feeAmount
@@ -60,6 +59,9 @@ router.patch('/:id', getStudent, async (req, res) => {
         }
         if (req.body.rollNumber != null) {
             res.student.rollNumber = req.body.rollNumber;
+        }
+        if (req.body.classNo != null) {
+            res.student.classNo = req.body.classNo;
         }
         if (req.body.address != null) {
             res.student.address = req.body.address;

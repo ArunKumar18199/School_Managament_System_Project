@@ -1,6 +1,6 @@
 _id,name,email,password,role,__v
-66291f3cbbbd5ad5ca0035de,admin,admin123@gmail.com,$2a$10$MiFRcZnSx9qBrXIIJ.3/gu6rhhjwT/ypKeQfyoC85uNz/us2vm/2i,teacher,0
-6629f840871e264a35c6f750,Arun Kumar,sef@gmail.vom,$2a$10$FWAMVfwVfrgioTLKwMmjbOiPDeH/kHnnGAciLkQJ.52qh/7SfeL1K,student,0
-6629f87a871e264a35c6f755,t,teacher@gmail.com,$2a$10$teWaG7r9q/gA22oSbqMPqOQwscg8ivOeWkjQPVjyDxKJ51k1W8GMm,teacher,0
-662a0aaeb6c53c31b306f07b,teacher2@gmail.com,teacher2@gmail.com,$2a$10$sfP6/EKFhTXndAu/rrcKte7U69v3F07o4JgbX8dZMfU8C1rmu/nTC,teacher,0
-662a0c04b6c53c31b306f095,Ram,teacher3@gmail.com,$2a$10$dOsybSntmOn4oygVyU.l4ueJzT1h3eFZnCmyhfV7F.oWwhe5lwzKy,teacher,0
+6648a050806582a91c8d0c66,admin,admin@gmail.com,$2a$10$cwL3dc0D7mWmzwvdMdIhwOjBiT/CDaI5RJ2sTMUb85EuK0x574dGG,admin,0
+6648a0c9806582a91c8d0c6c,Surya,admin1@gmail.com,$2a$10$h0KrktDiab6DXEDVMzfzourvT3Eo8p3UfVRplVN7gRuQr6d6nn3wm,admin,0
+6648a110806582a91c8d0c6e,Sarath,teacher@gmail.com,$2a$10$C5yFPvxvNSlwbpHUV44V5.RKjSfPC8jIRikMny7wEolluYdzudt0S,teacher,0
+6648a151806582a91c8d0c71,Arjun,student@gmail.com,$2a$10$wGwxsvaITGVgbsSPP7xr2OgTLWMk2HItp1jUyt3jCbxNUZee/AoaC,student,0
+6654b9e35e5f0dbd5ed34cff,Arun Kumar,arunk18199@gmail.com,$2a$10$jKylqJEb68XGrvo1vNaYu.4cqgI0h5gf3NF6GsMpIxGXBg7GQ7ggG,student,0

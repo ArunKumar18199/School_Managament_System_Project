@@ -1,14 +1,33 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import './GradeManagement.css'
+import { useLocation } from "react-router-dom";
+
 const GradeManagement = () => {
   const [grades, setGrades] = useState([]);
-  const [newGrade, setNewGrade] = useState({ rollNumber: '', classNo: '', subject: '', grade: '' });
+  const [newGrade, setNewGrade] = useState({ rollNumber: '', classNo: '', subject: '', grade: '' ,});
   const [selectedGrade, setSelectedGrade] = useState(null);
+  const [user, setUser] = useState();
+  const location = useLocation();
 
   useEffect(() => {
+    const getGrades = async () => {
+      try {
+        const token = localStorage.getItem('token'); // Retrieve the token from localStorage
+        axios.defaults.headers.common['Authorization'] = `Bearer ${token}`;
+        const response = await axios.get('http://localhost:5000/api/grades', {
+          headers: {
+            Authorization: `Bearer ${token}`, // Include the token in the request headers
+          },
+        });
+        setGrades(response.data);
+        setUser(location.state.user);
+      } catch (error) {
+        console.error('Error fetching grades:', error);
+      }
+    };
     getGrades();
-  }, []);
+  }, [location.state]);
   
   const getGrades = async () => {
     try {
@@ -20,6 +39,7 @@ const GradeManagement = () => {
         },
       });
       setGrades(response.data);
+      setUser(location.state.user);
     } catch (error) {
       console.error('Error fetching grades:', error);
     }
@@ -62,9 +82,10 @@ const GradeManagement = () => {
 
   return (
     <div>
-      <h2 style={{ color: 'orange' }}>Grade Management</h2><br/>
-      <div>
-        <h3 style={{ color: 'orange' }}>Add Grade</h3>
+      <h2 style={{ color: 'Brown' }}>Grade Management</h2>
+      {user && ( user.role ==='teacher') && (
+      <div><br/>
+        <h3 style={{ color: 'Brown' }}>Add Grade</h3>
         <input
           type="text"
           placeholder="Roll Number"
@@ -98,9 +119,10 @@ const GradeManagement = () => {
           </button>
         )}
       </div>
+      )}
       <br/>
       <div>
-        <h3 style={{ color: 'orange' }}>Grades List</h3>
+        <h3 style={{ color: 'Brown' }}>Grades List</h3>
         <ul>
           {grades.map((grade) => (
             <div key={grade._id} className='gradeCard'>
@@ -109,13 +131,18 @@ const GradeManagement = () => {
                 Class: {grade.classNo} <br/>
                 Subject: {grade.subject} <br/>
                 Score: {grade.grade} <br/>
-                <button onClick={() => selectGradeForEdit(grade)}>Edit</button>
-                <button onClick={() => deleteGrade(grade._id)}>Delete</button>
+                {user && (user.role ==='teacher') && (
+                  <div>
+                    <button onClick={() => selectGradeForEdit(grade)}>Edit</button>
+                    <button onClick={() => deleteGrade(grade._id)}>Delete</button>
+                  </div>
+                )}
               </li>
             </div>
           ))}
         </ul>
       </div>
+      <br></br>
     </div>
   );
 };

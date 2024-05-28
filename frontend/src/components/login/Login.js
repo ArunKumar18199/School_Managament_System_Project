@@ -2,25 +2,36 @@ import React, { useState } from "react";
 import axios from "axios";
 import { useNavigate, NavLink } from "react-router-dom";
 import image from './image.svg';
+import { toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+
 
 function Login() {
   const nav = useNavigate();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [message, setMessage] = useState("");
-
-  const submitHandler = async (e) => {
-    e.preventDefault();
+  
+  const submitHandler = async (event) => {
+    event.preventDefault();
     try {
-      const response = await axios.post("http://localhost:5000/api/auth/login", { email, password });
+      const response = await axios.post('http://localhost:5000/api/auth/login', {
+        email,
+        password
+      });
       if (response.data.success) {
-        // localStorage.setItem("token", response.data.token); // Store the token in localStorage
-        nav("/Home"); // Redirect to welcome page or any authenticated page
-      } else {
-        setMessage(response.data.message);
-      }
+        await axios.get('http://localhost:5000/api/auth/api/example',{headers:{'Authorization':'Bearer '+response.data.token}})
+        .then(res=> {
+          if(res.status === 200){
+            setMessage('Login successful');
+            toast.success("Logged in successfully!");
+            nav('/Home', {state: {user:response.data.role}}); 
+
+          }
+        })
+      } 
     } catch (error) {
-      setMessage("Invalid email or password");
+      setMessage(error.message && "Invalid email or password");
     }
   };
 
@@ -59,7 +70,7 @@ function Login() {
                 </button>
               </form>
               <p>
-                Don't have an account?{" "}
+                Don't have account?{" "}
                 <NavLink to="/register">Register</NavLink>
               </p>
             </div>

@@ -1,3 +1,4 @@
-_id,name,rollNumber,address,contactDetails,feeAmount,__v
-662936e38bd3b7b348a45715,Arjun,1,AP,phone,50000,0
-662a0874b6c53c31b306f064,Charan,2,AP,phone,45000,0
+_id,name,rollNumber,address,contactDetails,feeAmount,__v,classNo
+662936e38bd3b7b348a45715,Arjun Kumar,2,AP,phone,60000,0,10
+662a0874b6c53c31b306f064,karan,3,AP,phone,48000,0,9
+6654b6ce5e5f0dbd5ed34cd9,Arun,1,AP,phone,55000,0,10

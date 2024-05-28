@@ -1,7 +1,7 @@
 import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import AppBar from '@material-ui/core/AppBar';
-// import Typography from '@material-ui/core/Typography';
+
 import {
   MDBFooter,
   MDBContainer,
@@ -35,13 +35,13 @@ const useStyles = makeStyles(theme => ({
     return (
       <MDBFooter className='bg-light text-center text-white'>
         <MDBContainer className='p-0 pb-0'>
-          <section className='mb-4'>
             <MDBBtn
               floating
               className='m-1'
               style={{ backgroundColor: '#3b5998' }}
               href='#!'
               role='button'
+              target='_blank'
             >
               <MDBIcon fab icon='facebook-f' />
             </MDBBtn>
@@ -52,6 +52,7 @@ const useStyles = makeStyles(theme => ({
               style={{ backgroundColor: '#55acee' }}
               href='#!'
               role='button'
+              target='_blank'
             >
               <MDBIcon fab icon='twitter' />
             </MDBBtn>
@@ -59,7 +60,7 @@ const useStyles = makeStyles(theme => ({
               floating
               className='m-1'
               style={{ backgroundColor: '#ac2bac' }}
-              href='https://www.instagram.com/arun_kumar_kollisetty/'
+              href='#'
               role='button'
               target='_blank'
             >
@@ -70,7 +71,7 @@ const useStyles = makeStyles(theme => ({
               floating
               className='m-1'
               style={{ backgroundColor: '#0082ca' }}
-              href='https://www.linkedin.com/in/kollisetty-arun-kumar-837899243/'
+              href='#'
               role='button'
               target='_blank'
             >
@@ -83,10 +84,10 @@ const useStyles = makeStyles(theme => ({
               style={{ backgroundColor: '#333333' }}
               href='#!'
               role='button'
+              target='_blank'
             >
               <MDBIcon fab icon='github' />
             </MDBBtn>
-          </section>
         </MDBContainer>
   
         <div className='text-center p-0' style={{ backgroundColor: '#2D68C4' }}>
@@ -100,9 +101,7 @@ const useStyles = makeStyles(theme => ({
     const classes = useStyles();
     return (
       <AppBar position='fixed' className={classes.appBar}>
-        {/* <Typography variant='h6' className={classes.footer}> */}
           {App()}
-        {/* </Typography> */}
       </AppBar>
     );
   }

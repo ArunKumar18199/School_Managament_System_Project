@@ -1,4 +1,3 @@
-// models/Student.js
 const mongoose = require('mongoose');
 
 const studentSchema = new mongoose.Schema({
@@ -10,6 +9,10 @@ const studentSchema = new mongoose.Schema({
         type: String,
         required: true,
         unique: true
+      },
+      classNo: {
+        type: String,
+        required: true
       },
       address: {
         type: String,

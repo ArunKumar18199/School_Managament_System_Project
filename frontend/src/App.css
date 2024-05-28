@@ -326,6 +326,16 @@ button:hover {
 }
 
 
+.invisible-scrollbar::-webkit-scrollbar {
+  width: 0;  /* Remove scrollbar space */
+  background: transparent;  /* Optional: just make scrollbar invisible */
+}
+
+.your-element::-webkit-scrollbar {
+  display: none; /* For Chrome, Safari, and Opera */
+}
+
+
 .copyright p {
   text-align: center;
   font-size: 17px;
@@ -436,6 +446,3 @@ p.copy-footer-29 a:hover {
       font-size: 16px;
   }
 }
-
-/*-- //responsive design --*/
-/*-- //form styling --*/

@@ -1,21 +1,26 @@
 const mongoose = require('mongoose');
-// const Student = require('./Student');
 
 const feeSchema = new mongoose.Schema({
     rollNumber: {
         type: String,
-        ref: 'Student',
         required: true
     },
-    Class: {
+    classNo: {
         type: String,
         required: true
     },
     feeAmount: {
         type: Number,
         required: true
+    },
+    totalFeePaid: {
+        type: Number,
+        required: true
+    },
+    nextPaymentDue: {
+        type: Date, // Assuming next payment due is a date
+        required: true
     }
-    // Add other fee-related fields as needed
 });
 
 module.exports = mongoose.model('Fee', feeSchema);

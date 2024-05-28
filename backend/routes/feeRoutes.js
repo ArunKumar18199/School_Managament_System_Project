@@ -1,7 +1,6 @@
 const express = require('express');
 const router = express.Router();
 const Fee = require('../models/Fee');
-const Student = require('../models/Student');
 
 // Get all fees
 router.get('/', async (req, res) => {
@@ -15,17 +14,17 @@ router.get('/', async (req, res) => {
 
 // Add a new fee payment
 router.post('/', async (req, res) => {
-    const { rollNumber, amount } = req.body;
     try {
-        // Check if studentId is valid
-        const student = await Student.findById(rollNumber);
-        if (!student) {
-            return res.status(404).json({ message: 'Student not found' });
+        const { rollNumber, classNo, feeAmount, totalFeePaid, nextPaymentDue } = req.body;
+        if (!rollNumber || !classNo || !feeAmount || !totalFeePaid || !nextPaymentDue) {
+            return res.status(400).json({ message: 'Please provide all details' });
         }
         const fee = new Fee({
             rollNumber,
-            Class,
-            amount
+            classNo,
+            feeAmount,
+            totalFeePaid,
+            nextPaymentDue
         });
         const newFee = await fee.save();
         res.status(201).json(newFee);
@@ -57,10 +56,22 @@ async function getFee(req, res, next) {
 // Update fee payment
 router.patch('/:id', getFee, async (req, res) => {
     try {
-        if (req.body.amount != null) {
-            res.fee.amount = req.body.amount;
+        if (req.body.rollNumber != null) {
+            res.fee.rollNumber = req.body.rollNumber;
         }
-        // Update other fee-related fields as needed
+        if (req.body.classNo != null) {
+            res.fee.classNo = req.body.classNo;
+        }
+        if (req.body.feeAmount != null) {
+            res.fee.feeAmount = req.body.feeAmount;
+        }
+        if (req.body.totalFeePaid != null) {
+            res.fee.totalFeePaid = req.body.totalFeePaid;
+        }
+        if (req.body.nextPaymentDue != null) {
+            res.fee.nextPaymentDue = req.body.nextPaymentDue;
+        }
+        
         const updatedFee = await res.fee.save();
         res.json(updatedFee);
     } catch (err) {
@@ -70,9 +81,12 @@ router.patch('/:id', getFee, async (req, res) => {
 
 // Delete fee payment
 router.delete('/:id', getFee, async (req, res) => {
+    if (req.body.fee != null) {
+        res.fee.fee = req.body.fee;
+    }
     try {
-        await res.fee.remove();
-        res.json({ message: 'Fee payment deleted' });
+        const deleteGrade = await res.fee.deleteOne();
+        res.json({ message: 'Grade deleted', deleteGrade});
     } catch (err) {
         res.status(500).json({ message: err.message });
     }
